@@ -1,0 +1,27 @@
+<article class="flex max-w-xl flex-col items-start justify-between">
+  <div class="flex items-center gap-x-4 text-xs">
+    <time datetime="2020-03-16" class="text-gray-500"><%= time_ago_in_words(post.created_at) %> ago</time>
+  </div>
+  <div class="group relative">
+    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+      <%= link_to post_path(post.id) do %>
+        <span class="absolute inset-0"></span>
+        <%= post.title %>
+      <% end %>
+    </h3>
+    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"><%= post.body %></p>
+  </div>
+  <% if current_user %>
+    <div class="relative mt-8 flex items-center gap-x-4">
+      <div class="text-sm leading-6">
+        <p class="font-semibold text-gray-900">
+          <a href="#">
+            <span class="absolute inset-0"></span>
+            <%= post.user.username %>
+          </a>
+        </p>
+        <p class="text-gray-600"><%= post.user.email %></p>
+      </div>
+    </div>
+  <% end %>
+</article>

@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'
   delete 'signin' => 'sessions#destroy'
+
+  resources :posts
 end
