@@ -3,4 +3,6 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 48 }
   validates :body, presence: true
+
+  broadcasts_refreshes
 end
